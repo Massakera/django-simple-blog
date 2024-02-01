@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Comments</h2>
+  <div class="comments">
+    {% for comment in comments %}
+      <div class="comment">
+        <strong>Comment by {{ comment.author.username }}</strong>
+        <p>{{ comment.text }}</p>
+        <p>Posted on {{ comment.created_date }}</p>
+        {% if comment.approved_comment %}
+          <p>This comment has been approved.</p>
+        {% else %}
+          <p>This comment is awaiting approval.</p>
+        {% endif %}
+      </div>
+    {% empty %}
+      <p>No comments yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

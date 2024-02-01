@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="comment-detail">
+    <h2>Comment by {{ comment.author.username }}</h2>
+    <p>{{ comment.text }}</p>
+    <p>Posted on {{ comment.created_date }}</p>
+    {% if comment.approved_comment %}
+      <p>This comment has been approved.</p>
+    {% else %}
+      <p>This comment is awaiting approval.</p>
+      <!-- If the user has permission to approve comments, show approve button -->
+      {% if user.is_authenticated and user.has_perm('comments.approve_comment') %}
+        <form method="post" action="{% url 'comment_approve' pk=comment.pk %}">
+          {% csrf_token %}
+          <button type="submit">Approve Comment</button>
+        </form>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}

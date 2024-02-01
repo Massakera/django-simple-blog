@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+<head>
+    <title>Django Blog</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'post_list' %}">Django Blog</a></h1>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <p>Django Blog © 2024</p>
+    </footer>
+</body>
+</html>
