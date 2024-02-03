@@ -1,6 +1,6 @@
 # Django Blog Project
 
-This is a simple blogging platform built with Django. It allows users to create, edit, and delete posts. Comments can be added to each post.
+This is a simple blogging platform built with Django to test some features. It allows users to create, edit, and delete posts. Comments can be added to each post.
 
 ## Getting Started
 
